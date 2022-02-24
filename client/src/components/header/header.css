@@ -1,0 +1,96 @@
+.headerContainer {
+	height: 50px;
+	width: 100%;
+	background-color: #dd2c00;
+	color: #ffff;
+	display: flex;
+	align-items: center;
+	position: sticky;
+	top: 0;
+}
+
+.headerLeft {
+	flex: 3;
+}
+
+.logo {
+	font-size: 24px;
+	margin-left: 20px;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.headerCenter {
+	flex: 5;
+}
+
+.searchBar {
+	width: 100%;
+	height: 30px;
+	background-color: #ffff;
+	border-radius: 30px;
+	display: flex;
+	align-items: center;
+}
+
+.searchInput {
+	border: none;
+	width: 70%;
+}
+
+.searchInput:focus {
+	outline: none;
+}
+
+.searchIcon {
+	font-size: 20px !important;
+	margin-left: 10px;
+}
+
+.headerRight {
+	flex: 4;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	color: fffff;
+}
+
+.headerLink {
+	margin-right: 10px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.headerIcons {
+	display: flex;
+}
+
+.headerIcon {
+	margin-right: 15px;
+	cursor: pointer;
+	position: relative;
+}
+
+.headerCountBadge {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	color: #dd2c00;
+	background-color: #ffff;
+	position: absolute;
+	top: -5px;
+	right: -5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.profilePic {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	object-fit: cover;
+	cursor: pointer;
+}
