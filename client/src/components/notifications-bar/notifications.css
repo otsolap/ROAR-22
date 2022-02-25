@@ -21,6 +21,7 @@
 	font-style: 15px;
 }
 
+/* Brave blocks everything Ad related lol. */
 .mainosImg {
 	width: 100%;
 	max-height: 250px;
@@ -63,8 +64,8 @@
 	border-radius: 50%;
 	background-color: limegreen;
 	position: absolute;
-	right: 0;
-	top: -2;
+	right: 0px;
+	top: -2px;
 	border: 2px solid white;
 }
 
