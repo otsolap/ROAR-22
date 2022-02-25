@@ -1,4 +1,7 @@
 import './notifications.css'
+import { Users } from '../../util/dummyData'
+import Online from '../online/Online'
+
 export default function Notifications() {
     return (
         <div className="notificationsBar">
@@ -14,13 +17,12 @@ export default function Notifications() {
                 </div>
                 <h4 className="FriendsHeader">Online Friends</h4>
                 <ul className="friendList">
-                    <li className="friend">
-                        <div className="friendImgContainer">
-                            <img src="/assets/person/Godwyn.jfif" className="friendImg" alt="" />
-                            <span className="friendOnlineStatus"></span>
-                        </div>
-                        <span className="friendUsername">Godwyn</span>
-                    </li>
+                    {Users.map(user => (
+                        <Online
+                            key={user.id}
+                            user={user}
+                        />
+                    ))}
                 </ul>
             </div>
 
