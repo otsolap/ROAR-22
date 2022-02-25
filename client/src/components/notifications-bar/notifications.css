@@ -39,3 +39,47 @@
 	margin: 0;
 	list-style: none;
 }
+
+.notifTitle {
+	font-size: 18px;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
+.notifInfo {
+	margin-bottom: 30px;
+}
+
+.notifInfoItem {
+	margin-bottom: 10px;
+}
+
+.notifInfoKey {
+	font-weight: 500;
+	margin-right: 15px;
+	color: #555;
+}
+
+.notifValue {
+	font-weight: 300;
+}
+
+.notifFollowings {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.notifFollowing {
+	display: flex;
+	flex-direction: column;
+}
+
+.notifFollowingImg {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 5px;
+}

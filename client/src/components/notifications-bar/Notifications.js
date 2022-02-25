@@ -2,10 +2,11 @@ import './notifications.css'
 import { Users } from '../../util/dummyData'
 import Online from '../online/Online'
 
-export default function Notifications() {
-    return (
-        <div className="notificationsBar">
-            <div className="notifWrapper">
+export default function Notifications({ profile }) {
+
+    const HomeNotifs = () => {
+        return (
+            <>
                 <div className="birthdayContainer">
                     <img src="/assets/gift.png" className="birthdayImg" alt="User birthday" />
                     <span className="birthdayText">
@@ -24,8 +25,46 @@ export default function Notifications() {
                         />
                     ))}
                 </ul>
-            </div>
+            </>
+        )
+    }
 
+    const ProfileNotifs = () => {
+        return (
+            <>
+                <h4 className="notifTitle">User information</h4>
+                <dic className="notifInfo">
+                    <div className="notifInfoItem">
+                        <span className="notifInfoKey">City:</span>
+                        <span className="notifInfoValue">Helsinki</span>
+                    </div>
+                    <div className="notifInfoItem">
+                        <span className="notifInfoKey">From:</span>
+                        <span className="notifInfoValue">Finland</span>
+                    </div>
+                    <div className="notifInfoItem">
+                        <span className="notifInfoKey">Relationship:</span>
+                        <span className="notifInfoValue">Dating Myller</span>
+                    </div>
+                    <h4 className="notifTitle">User friends</h4>
+                    <div className="notifFollowings">
+                        <div className="notifFollowing">
+                            <img
+                                className="notifFollowingImg"
+                                src="assets/person/1.jpeg" alt="" />
+                            <span className="notifFollowingName">John Carter of Mars</span>
+                        </div>
+                    </div>
+                </dic>
+            </>
+        )
+    }
+
+    return (
+        <div className="notificationsBar">
+            <div className="notifWrapper">
+                <ProfileNotifs />
+            </div>
         </div>
     )
 }
