@@ -3,7 +3,6 @@ import { Users } from '../../util/dummyData'
 import Online from '../online/Online'
 
 export default function Notifications({ profile }) {
-
     const HomeNotifs = () => {
         return (
             <>
@@ -63,7 +62,7 @@ export default function Notifications({ profile }) {
     return (
         <div className="notificationsBar">
             <div className="notifWrapper">
-                <ProfileNotifs />
+                {profile ? <ProfileNotifs /> : <HomeNotifs />}
             </div>
         </div>
     )
