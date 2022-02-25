@@ -1,11 +1,14 @@
 import './header.css'
 import { Search, Person, Chat, Notifications } from '@material-ui/icons'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
     return (
         <div className="headerContainer">
             <div className="headerLeft">
-                <span Classname="logo">Roar</span>
+                <Link to="/" style={{ textDecoration: 'none', color: '#fff' }}>
+                    <span Classname="logo">Roar</span>
+                </Link>
             </div>
             <div className="headerCenter">
                 <div className="searchBar">

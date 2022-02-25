@@ -29,6 +29,7 @@ export default function Notifications({ profile }) {
     }
 
     const ProfileNotifs = () => {
+        const PF = process.env.REACT_APP_PUBLIC_FOLDER
         return (
             <>
                 <h4 className="notifTitle">User information</h4>
@@ -50,7 +51,7 @@ export default function Notifications({ profile }) {
                         <div className="notifFollowing">
                             <img
                                 className="notifFollowingImg"
-                                src="assets/person/1.jpeg" alt="" />
+                                src={`${PF}person/1.jpeg`} alt="" />
                             <span className="notifFollowingName">John Carter of Mars</span>
                         </div>
                     </div>

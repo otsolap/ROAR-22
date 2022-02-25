@@ -6,6 +6,7 @@ import Notifications from "../../components/notifications-bar/Notifications"
 
 
 export default function Profile() {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER
     return (
         <>
             <Header />
@@ -14,8 +15,8 @@ export default function Profile() {
                 <div className="profileRight">
                     <div className="profileRightHeader">
                         <div className="profileCover">
-                            <img className="profileBanner" alt="Banner" src="assets/post/3.jpeg" />
-                            <img className="profileAvatar" alt="Banner" src="assets/person/7.jpeg" />
+                            <img className="profileBanner" alt="Banner" src={`${PF}post/3.jpeg`} />
+                            <img className="profileAvatar" alt="Banner" src={`${PF}person/7.jpeg`} />
                         </div>
                         <div className="profileInfo">
                             <h4 className="profileInfoName">Otso Papparainen</h4>

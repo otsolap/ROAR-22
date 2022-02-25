@@ -6,6 +6,7 @@ import { Users } from '../../util/dummyData'
 export default function Post({ post }) {
     const [like, setLike] = useState(post.like)
     const [isLiked, setIsLiked] = useState(false)
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER
 
     const likeHandler = () => {
         setLike(isLiked ? like - 1 : like + 1)
@@ -31,12 +32,12 @@ export default function Post({ post }) {
                     <span className="postText">{post?.description}</span>
                     <img
                         className="postImg"
-                        src={post.photo} alt="" />
+                        src={PF + post.photo} alt="" />
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
-                        <img className="postIcon" src="/assets/like.png" onClick={likeHandler} alt="like post" />
-                        <img className="postIcon" src="/assets/heart.png" onClick={likeHandler} alt="love post" />
+                        <img className="postIcon" src={`${PF}like.png`} onClick={likeHandler} alt="like post" />
+                        <img className="postIcon" src={`${PF}heart.png`} onClick={likeHandler} alt="love post" />
                         <span className="postLikeCounter">{like} people like it</span>
                     </div>
                     <div className="postBottomRight">
