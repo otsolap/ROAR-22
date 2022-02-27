@@ -24,7 +24,7 @@ export default function Profile() {
                         </div>
                     </div>
                     <div className="profileRightFooter">
-                        <Feed />
+                        <Feed username={'Travis'} />
                         <Notifications profile />
                     </div>
                 </div>
