@@ -1,12 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './post.css'
 import { MoreVert } from '@material-ui/icons'
-import { Users } from '../../util/dummyData'
+import axios from 'axios'
 
 export default function Post({ post }) {
-    const [like, setLike] = useState(post.like)
+    const [like, setLike] = useState(post.likes.length)
     const [isLiked, setIsLiked] = useState(false)
+    const [user, setUser] = useState({})
     const PF = process.env.REACT_APP_PUBLIC_FOLDER
+
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            axios.get(`users/${post.userId}`).then(function (res) {
+                console.log(res.data)
+                setUser(res.data)
+            }).catch(function (error) {
+                console.log(error)
+            }).then(function () {
+            })
+        }
+        fetchUser()
+    }, [])
 
     const likeHandler = () => {
         setLike(isLiked ? like - 1 : like + 1)
@@ -20,8 +35,8 @@ export default function Post({ post }) {
                     <div className="postTopLeft">
                         <img
                             className="postProfilePic"
-                            src={Users.filter(user => user.id === post.userId)[0].profilePicture} alt="" />
-                        <span className="postUsername">{Users.filter(user => user.id === post.userId)[0].username}</span>
+                            src={user.profilePicture || PF + 'person/noAvatar.png'} alt="" />
+                        <span className="postUsername">{user.username}</span>
                         <span className="postDate">{post.date}</span>
                     </div>
                     <div className="postTopRight">
@@ -32,7 +47,7 @@ export default function Post({ post }) {
                     <span className="postText">{post?.description}</span>
                     <img
                         className="postImg"
-                        src={PF + post.photo} alt="" />
+                        src={PF + post.img} alt="" />
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">

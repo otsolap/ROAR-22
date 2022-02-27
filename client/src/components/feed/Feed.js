@@ -7,13 +7,16 @@ import axios from 'axios'
 
 export default function Feed() {
     const [posts, setPosts] = useState([])
-    const [text, setText] = useState('')
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const res = axios.get('posts/timeline/621606502acc56c278f81f7d')
-            console.table(res)
-            // setPosts(res.data)
+            axios.get("posts/timeline/621606502acc56c278f81f7d").then(function (response) {
+                console.log(response.data)
+                setPosts(response.data)
+            }).catch(function (error) {
+                console.log(error)
+            }).then(function () {
+            })
         }
         fetchPosts()
     }, [])
@@ -22,12 +25,13 @@ export default function Feed() {
         <div className="feed">
             <div className="feedWrapper">
                 <Share />
-                {/*           {Posts.map(post => (
+                {posts.length < 1 && posts.map(p => (
                     <Post
-                        key={post.id}
-                        post={post}
+                        key={p._id}
+                        post={p}
                     />
-                ))} */}
+                )
+                )}
             </div>
         </div>
     )
