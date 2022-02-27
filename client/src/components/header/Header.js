@@ -7,7 +7,7 @@ export default function Header() {
         <div className="headerContainer">
             <div className="headerLeft">
                 <Link to="/" style={{ textDecoration: 'none', color: '#fff' }}>
-                    <span Classname="logo">Roar</span>
+                    <span className="logo">Roar</span>
                 </Link>
             </div>
             <div className="headerCenter">

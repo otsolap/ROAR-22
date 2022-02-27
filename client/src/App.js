@@ -5,26 +5,28 @@ import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import {
   BrowserRouter as Router,
-  Routes,
-  Route
+  Switch,
+  Route,
 } from 'react-router-dom'
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-      </Routes>
-      <Routes>
-        <Route path="/profile/:username" element={<Profile />} />
-      </Routes>
-      <Routes>
-        <Route path="/register" element={<Register />} />
-      </Routes>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </Router >
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+        <Route path="/profile/:username">
+          <Profile />
+        </Route>
+      </Switch>
+    </Router>
 
   );
 }

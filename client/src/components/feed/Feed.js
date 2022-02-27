@@ -12,7 +12,8 @@ export default function Feed() {
     useEffect(() => {
         const fetchPosts = async () => {
             const res = axios.get('posts/timeline/621606502acc56c278f81f7d')
-            console.log(res)
+            console.table(res)
+            // setPosts(res.data)
         }
         fetchPosts()
     }, [])
@@ -21,7 +22,7 @@ export default function Feed() {
         <div className="feed">
             <div className="feedWrapper">
                 <Share />
-                {/*             {Posts.map(post => (
+                {/*           {Posts.map(post => (
                     <Post
                         key={post.id}
                         post={post}
