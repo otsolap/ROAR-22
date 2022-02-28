@@ -10,17 +10,13 @@ export default function Feed({ username }) {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            username ?
-                await axios.get('/posts/profile/' + username)
-                : await axios.get('/posts/timeline/621b3cbdaddaa2a31271761b')
-                    .then(function (response) {
-                        setPosts(response.data)
-                        console.log(response)
-                        console.log(response.data)
-                    }).catch(function (error) {
-                        console.log(error)
-                    }).then(function () {
-                    })
+            await (username ? axios.get('/posts/profile/' + username) : axios.get('posts/timeline/621b367aaddaa2a312717607'))
+                .then(async function (response) {
+                    setPosts(response.data)
+                }).catch(async function (error) {
+                    console.log(error)
+                }).then(async function () {
+                })
         }
         fetchPosts()
     }, [username])
