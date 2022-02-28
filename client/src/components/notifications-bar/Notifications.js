@@ -2,7 +2,7 @@ import './notifications.css'
 import { Users } from '../../util/dummyData'
 import Online from '../online/Online'
 
-export default function Notifications({ profile }) {
+export default function Notifications({ user }) {
     const HomeNotifs = () => {
         return (
             <>
@@ -36,15 +36,15 @@ export default function Notifications({ profile }) {
                 <dic className="notifInfo">
                     <div className="notifInfoItem">
                         <span className="notifInfoKey">City:</span>
-                        <span className="notifInfoValue">Helsinki</span>
+                        <span className="notifInfoValue">{user.city}</span>
                     </div>
                     <div className="notifInfoItem">
                         <span className="notifInfoKey">From:</span>
-                        <span className="notifInfoValue">Finland</span>
+                        <span className="notifInfoValue">{user.countryOfOrigin}</span>
                     </div>
                     <div className="notifInfoItem">
                         <span className="notifInfoKey">Relationship:</span>
-                        <span className="notifInfoValue">Dating Myller</span>
+                        <span className="notifInfoValue">{user.relationship === 1 ? "Single" : user.relationship === 2 ? "Married" : "Complicated"} </span>
                     </div>
                     <h4 className="notifTitle">User friends</h4>
                     <div className="notifFollowings">
@@ -63,7 +63,7 @@ export default function Notifications({ profile }) {
     return (
         <div className="notificationsBar">
             <div className="notifWrapper">
-                {profile ? <ProfileNotifs /> : <HomeNotifs />}
+                {user ? <ProfileNotifs /> : <HomeNotifs />}
             </div>
         </div>
     )
