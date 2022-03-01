@@ -58,14 +58,22 @@
 }
 
 .loginButton {
+	margin-top: 3rem;
+	width: 60%;
+	align-self: center;
 	height: 50px;
 	border-radius: 10px;
 	border: none;
-	background-color: #dd2c00;
+	background-color: #42b728;
 	color: white;
 	font-size: 20px;
 	font-weight: 500;
 	cursor: pointer;
+}
+
+.loginLink {
+	text-decoration: none;
+	color: white;
 }
 
 .ForgotPassword {
@@ -73,12 +81,10 @@
 }
 
 .loginRegister {
-	width: 60%;
-	align-self: center;
 	height: 50px;
 	border-radius: 10px;
 	border: none;
-	background-color: #42b728;
+	background-color: #dd2c00;
 	color: white;
 	font-size: 20px;
 	font-weight: 500;

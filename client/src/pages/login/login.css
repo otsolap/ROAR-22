@@ -68,6 +68,18 @@
 	cursor: pointer;
 }
 
+.loginButton:focus {
+	outline: none;
+}
+
+.loginButton:disabled {
+	cursor: not-allowed;
+}
+
+.loginRegister:disabled {
+	cursor: not-allowed;
+}
+
 .ForgotPassword {
 	text-align: center;
 }
@@ -83,4 +95,9 @@
 	font-size: 20px;
 	font-weight: 500;
 	cursor: pointer;
+}
+
+.registerLink {
+	text-decoration: none;
+	color: white;
 }

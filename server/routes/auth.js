@@ -32,7 +32,7 @@ router.post('/login', async (req, res) => {
         const validPassword = await bcrypt.compare(req.body.password, user.password)
         // this needs to be && but maybe your VPN is fucking things up?
         // REMEMBER TO CHECK LATER.
-        !validPassword || res.status(400).json('Wrong password')
+        !validPassword && res.status(400).json('Wrong password')
 
         res.status(200).json(user)
     } catch (err) {
