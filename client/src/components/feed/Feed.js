@@ -16,7 +16,6 @@ export default function Feed({ username }) {
                 : axios.get('/posts/timeline/' + user._id))
                 .then(async function (response) {
                     setPosts(response.data)
-                    console.log(response.data)
                 }).catch(async function (error) {
                     console.log(error)
                 }).then(async function () {
