@@ -1,19 +1,37 @@
 import './notifications.css'
 import { Users } from '../../util/dummyData'
 import Online from '../online/Online'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 export default function Notifications({ user }) {
+    const [friends, setFriends] = useState([])
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER
+
+
+    useEffect(() => {
+        const getFriends = async () => {
+            try {
+                const friendList = await axios.get('/users/friends/' + user._id)
+                setFriends(friendList.data)
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        getFriends()
+    }, [user])
+
     const HomeNotifs = () => {
         return (
             <>
                 <div className="birthdayContainer">
-                    <img src="/assets/gift.png" className="birthdayImg" alt="User birthday" />
+                    <img src={PF + "gift.png"} className="birthdayImg" alt="User birthday" />
                     <span className="birthdayText">
                         <b>Godwyck</b> and <b>3 other friends</b> are having a Birthday!
                     </span>
                 </div>
                 <div className="mainosContainer">
-                    <img src="/assets/RoarBG.jpg" className="mainosImg" alt="Mainos" />
+                    <img src={PF + "/RoarBG.jpg"} className="mainosImg" alt="Mainos" />
                 </div>
                 <h4 className="FriendsHeader">Online Friends</h4>
                 <ul className="friendList">
@@ -29,11 +47,10 @@ export default function Notifications({ user }) {
     }
 
     const ProfileNotifs = () => {
-        const PF = process.env.REACT_APP_PUBLIC_FOLDER
         return (
             <>
                 <h4 className="notifTitle">User information</h4>
-                <dic className="notifInfo">
+                <div className="notifInfo">
                     <div className="notifInfoItem">
                         <span className="notifInfoKey">City:</span>
                         <span className="notifInfoValue">{user.city}</span>
@@ -47,15 +64,18 @@ export default function Notifications({ user }) {
                         <span className="notifInfoValue">{user.relationship === 1 ? "Single" : user.relationship === 2 ? "Married" : ""} </span>
                     </div>
                     <h4 className="notifTitle">User friends</h4>
-                    <div className="notifFollowings">
-                        <div className="notifFollowing">
-                            <img
-                                className="notifFollowingImg"
-                                src={`${PF}person/1.jpeg`} alt="" />
-                            <span className="notifFollowingName">John Carter of Mars</span>
+                    {friends.map(friend => (
+                        <div className="notifFollowings">
+                            <div className="notifFollowing">
+                                <img
+                                    className="notifFollowingImg"
+                                    src={friend.profilePicture ? friend.profilePicture : PF + "person/noAvatar.png"} alt="" />
+                                <span className="notifFollowingName">{friend.username}</span>
+                            </div>
                         </div>
-                    </div>
-                </dic>
+                    ))}
+
+                </div>
             </>
         )
     }
