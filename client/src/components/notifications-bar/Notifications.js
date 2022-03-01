@@ -44,7 +44,7 @@ export default function Notifications({ user }) {
                     </div>
                     <div className="notifInfoItem">
                         <span className="notifInfoKey">Relationship:</span>
-                        <span className="notifInfoValue">{user.relationship === 1 ? "Single" : user.relationship === 2 ? "Married" : "Complicated"} </span>
+                        <span className="notifInfoValue">{user.relationship === 1 ? "Single" : user.relationship === 2 ? "Married" : ""} </span>
                     </div>
                     <h4 className="notifTitle">User friends</h4>
                     <div className="notifFollowings">
