@@ -42,7 +42,7 @@ export default function Share() {
         <div className="shareContainer">
             <div className="shareWrapper">
                 <div className="shareHeader">
-                    <img src={user.profilePicture ? user.profilePicture : PF + 'person/noAvatar.png'}
+                    <img src={user.profilePicture || PF + 'person/noAvatar.png'}
                         alt=""
                         className="shareProfilePic"
                     />

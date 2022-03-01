@@ -33,8 +33,8 @@ export default function Profile() {
                 <div className="profileRight">
                     <div className="profileRightHeader">
                         <div className="profileCover">
-                            <img className="profileBanner" alt="Banner" src={user.coverPicture ? user.coverPicture : PF + "person/noCover.png"} />
-                            <img className="profileAvatar" alt="Banner" src={user.profilePicture ? user.profilePicture : PF + "person/noAvatar.png"} />
+                            <img className="profileBanner" alt="Banner" src={user.coverPicture || PF + "person/noCover.png"} />
+                            <img className="profileAvatar" alt="Banner" src={user.profilePicture || PF + "person/noAvatar.png"} />
                         </div>
                         <div className="profileInfo">
                             <h4 className="profileInfoName">{user.username}</h4>
