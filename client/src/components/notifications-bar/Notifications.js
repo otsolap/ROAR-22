@@ -3,23 +3,23 @@ import Online from '../online/Online'
 import { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { AuthContext } from '../../context/AuthContext'
+import { UserContext } from '../../context/UserContext'
 import { Add, Remove } from '@material-ui/icons'
 
 export default function Notifications({ user }) {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER
     const [friends, setFriends] = useState([])
-    const { user: currentUser, dispatch } = useContext(AuthContext)
-    const [followed, setFollowed] = useState(
-        currentUser.following.includes(user.id)
-    );
-    console.log(currentUser.id)
+    const { user: currentUser, dispatch } = useContext(UserContext)
+    const [followed, setFollowed] = useState(currentUser.following.includes(user?.id));
 
     useEffect(() => {
         const getFriends = async () => {
             try {
-                const friendList = await (axios.get("/users/friends/" + user._id));
-                setFriends(friendList.data);
+                await (axios.get("/users/friends/" + user._id))
+                    .then(async function (response) {
+                        setFriends(response.data)
+                        console.log(response.data)
+                    });
             } catch (err) {
                 console.log(err);
             }
@@ -30,19 +30,20 @@ export default function Notifications({ user }) {
     const handleFollow = async () => {
         try {
             if (followed) {
-                await axios.put(`users/${user._id}/unfollow`, {
+                await (axios.put(`/users/${user._id}/unfollow`), {
                     userId: currentUser._id,
                 });
                 dispatch({ type: "UNFOLLOW", payload: user._id });
             } else {
-                await axios.put(`/users/${user._id}/follow`, {
+                await (axios.put(`/users/${user._id}/follow`), {
                     userId: currentUser._id,
                 });
                 dispatch({ type: "FOLLOW", payload: user._id });
             }
-            setFollowed(!followed);
         } catch (err) {
+            console.log(err)
         }
+        setFollowed(!followed);
     }
 
     const HomeNotifs = () => {

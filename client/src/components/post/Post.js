@@ -4,7 +4,7 @@ import { MoreVert } from '@material-ui/icons'
 import axios from 'axios'
 import { format } from 'timeago.js'
 import { Link } from 'react-router-dom'
-import { AuthContext } from '../../context/AuthContext'
+import { UserContext } from '../../context/UserContext'
 
 export default function Post({ post }) {
     const [like, setLike] = useState(post.likes.length)
@@ -13,7 +13,7 @@ export default function Post({ post }) {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER
     // currentUser is a nickname for user
     // because user has been declared by state already. line 12.
-    const { user: currentUser } = useContext(AuthContext)
+    const { user: currentUser } = useContext(UserContext)
 
     useEffect(() => {
         setIsLiked(post.likes.includes(currentUser._id))

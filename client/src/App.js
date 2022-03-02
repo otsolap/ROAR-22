@@ -10,10 +10,10 @@ import {
   Navigate
 } from 'react-router-dom'
 import { useContext } from 'react';
-import { AuthContext } from './context/AuthContext';
+import { UserContext } from './context/UserContext';
 
 function App() {
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(UserContext)
 
   return (
     <Router>

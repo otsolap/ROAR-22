@@ -1,7 +1,7 @@
 import { useContext, useRef } from 'react'
 import './login.css'
 import { loginCall } from '../../util/apiCalls';
-import { AuthContext } from '../../context/AuthContext';
+import { UserContext } from '../../context/UserContext';
 import { CircularProgress } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 
@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 export default function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
-    const { user, isFetching, dispatch } = useContext(AuthContext)
+    const { user, isFetching, dispatch } = useContext(UserContext)
 
     const handleSubmit = (e) => {
         e.preventDefault()
