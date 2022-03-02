@@ -18,7 +18,6 @@ export default function Notifications({ user }) {
                 await (axios.get("/users/friends/" + user._id))
                     .then(async function (response) {
                         setFriends(response.data)
-                        console.log(response.data)
                     });
             } catch (err) {
                 console.log(err);
